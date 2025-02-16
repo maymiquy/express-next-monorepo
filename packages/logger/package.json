@@ -1,0 +1,48 @@
+{
+ "name": "@packages/logger",
+ "version": "0.1.0",
+ "type": "module",
+ "private": true,
+ "files": [
+  "dist"
+ ],
+ "main": "./dist/es/index.js",
+ "module": "./dist/es/index.js",
+ "types": "./dist/es/index.d.ts",
+ "exports": {
+  ".": {
+   "import": {
+    "types": "./dist/cjs/index.d.cts",
+    "default": "./dist/cjs/index.cjs"
+   },
+   "require": {
+    "types": "./dist/es/index.d.ts",
+    "default": "./dist/es/index.js"
+   }
+  }
+ },
+ "scripts": {
+  "build": "bunchee",
+  "lint": "eslint src/",
+  "check-types": "tsc --noEmit",
+  "test": "jest"
+ },
+ "jest": {
+  "preset": "@packages/jest-presets/node"
+ },
+ "devDependencies": {
+  "@jest/globals": "^29.7.0",
+  "@packages/eslint-config": "workspace:*",
+  "@packages/jest-presets": "workspace:*",
+  "@packages/typescript-config": "workspace:*",
+  "@types/node": "^22.13.4",
+  "bunchee": "^6.3.4",
+  "eslint": "^9.20.1",
+  "jest": "^29.7.0",
+  "typescript": "5.7.3"
+ },
+ "dependencies": {
+  "winston": "3.17.0",
+  "winston-daily-rotate-file": "5.0.0"
+ }
+}
